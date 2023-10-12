@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title> task3 </title>
+    </head>
+    <body>
+        <script src="vec3.js"></script>
+        <script>
+        //   var x =5, y = 4, z = 8;
+        //   var v = new Vec3(x,y,z);
+        //   var min = v.min();
+        //   var mid = v.mid();
+        //   var max = v.max();
+          
+        //   document.write("min = " + min);
+        //   document.write(" ,mid = " + mid);
+        //   document.write(" ,max = " + max);
+
+        var x0,x1,x2,y0,y1,y2,z0,z1,z2;
+        x0=0;y0=0;z0=0;
+        x1=1;y1=1;z1=1;
+        x2=5;y2=2;z2=2;
+
+        vector1 = new Vec3(x0,y0,z0);
+        vector2 = new Vec3(x1,y1,z1);
+        vector3 = new Vec3(x2,y2,z2);
+        //document.write("area = ");
+        var area = AreaOfTriangle(vector1,vector2,vector3);
+        document.write("area = " + area);
+
+          function AreaOfTriangle(v0,v1,v2)
+          {
+            var length1 = v0.edge_length(v1);
+            var length2 = v0.edge_length(v2);
+            var length3 = v1.edge_length(v2);
+            var semiperimeter = (length1 + length2 + length3)/2;
+            return Math.sqrt(semiperimeter*(semiperimeter - length1)*
+            (semiperimeter - length2 )*(semiperimeter - length3));
+          }
+
+        </script>
+    </body>
+</html>
