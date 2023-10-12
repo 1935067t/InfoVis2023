@@ -7,6 +7,13 @@ class Vec3
         this.z = z;
     }
 
+    set(x,y,z)
+    {
+        this.x = x;
+        this.y = y;
+        this.z = z;
+    }
+
     min()
     {
         return Math.min(this.x,this.y,this.z);
