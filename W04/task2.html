@@ -19,8 +19,9 @@
 		.attr("y", function(d,i){ return padding + i * ( height + padding ); })
 		.attr("x", padding);
 
-		 d3.select("body")
-	        .selectAll("rect")
+		 var svg = d3.select("body").append("svg");
+		 // d3.select("body")
+	        svg.selectAll("rect")
 		.data(data)
 	        .enter()
 	        .append("rect")
