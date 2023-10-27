@@ -14,11 +14,18 @@
 		.data(data)
 	        .enter()
 	        .append("rect")
-	        .attr("x", padding)
+	        .attr("x", padding+20)
 	        .attr("y", function(d,i){ return padding + i * ( height + padding ); })
-	        .attr("width", function(d){ return d.width; })
+	        .attr("width", function(d){ return d.length; })
 	        .attr("height", height)
             .style("fill", function(d){ return d.color; });
+
+        svg.selectAll("p")
+        .data(data)
+            .enter()
+            .append("p")
+            .text(function(d){ return d.label;})
+            .attr("y",function(d,i){ return padding + i * ( height + padding ); });
 	 };
 	</script>
     </body>
