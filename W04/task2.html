@@ -10,14 +10,15 @@
 	 var svg = d3.select("body").append("svg");
 	 d3.csv("https://1935067t.github.io/InfoVis2023/W04/w04_task2.csv", draw );
 	 function draw(data){
-	     svg.selectAll("p")
+	     svg.selectAll("span")
         	.data(data)
             	.enter()
-            	.append("p")
+            	.append("span")
             	.text("a")
             	.attr("y",100)
 		.attr("x",100)
-		.style("font-size","50px");
+		.style("font-size","50px")
+		.style("font-weight","bold");
 		 
 	     svg.selectAll("rect")
 		.data(data)
