@@ -14,7 +14,7 @@
 		.data(data)
 	        .enter()
 	        .append("rect")
-	        .attr("x", padding+200)
+	        .attr("x", padding+100)
 	        .attr("y", function(d,i){ return padding + i * ( height + padding ); })
 	        .attr("width", function(d){ return d.length; })
 	        .attr("height", height)
@@ -26,7 +26,7 @@
 		.enter()
                 .append("text")
                 .text(function(d){ return d.label; })
-		.attr("y", function(d,i){ return padding + i * ( height + padding ); })
+		.attr("y", function(d,i){ return padding+20 + i * ( height + padding ); })
 		.attr("x", padding);
 
 
