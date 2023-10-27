@@ -10,22 +10,23 @@
 	 var svg = d3.select("body").append("svg");
 	 d3.csv("https://1935067t.github.io/InfoVis2023/W04/w04_task2.csv", draw );
 	 function draw(data){
-	     svg.selectAll("text")
+	     svg.selectAll("p")
         	.data(data)
             	.enter()
-            	.append("text")
+            	.append("p")
             	.text("a");
-            	//.attr("y",function(d,i){ return padding + i * ( height + padding ); });
+            	.attr("y",function(d,i){ return padding + i * ( height + padding ); })
+		.attr("x",padding);
 		 
-	 //     svg.selectAll("rect")
-		// .data(data)
-	 //        .enter()
-	 //        .append("rect")
-	 //        .attr("x", padding+20)
-	 //        .attr("y", function(d,i){ return padding + i * ( height + padding ); })
-	 //        .attr("width", function(d){ return d.length; })
-	 //        .attr("height", height)
-  //           .style("fill", function(d){ return d.color; });
+	     svg.selectAll("rect")
+		.data(data)
+	        .enter()
+	        .append("rect")
+	        .attr("x", padding+20)
+	        .attr("y", function(d,i){ return padding + i * ( height + padding ); })
+	        .attr("width", function(d){ return d.length; })
+	        .attr("height", height)
+            .style("fill", function(d){ return d.color; });
 
 
 	 };
