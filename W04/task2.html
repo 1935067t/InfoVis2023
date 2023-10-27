@@ -10,8 +10,9 @@
 	 var svg = d3.select("body").append("svg");
 	 d3.csv("https://1935067t.github.io/InfoVis2023/W04/w04_task2.csv", draw );
 	 function draw(data){
-		 d3.select("body")
-	        .selectAll("p")
+		 // d3.select("body")
+	 	
+	        svg.selectAll("p")
                 .data(data)
                 .enter()
                 .append("p")
