@@ -7,20 +7,9 @@
 	<script>
      var padding = 10;
 	 var height = 20;
-	 // var svg = d3.select("body").append("svg");
+	 var svg = d3.select("body").append("svg");
 	 d3.csv("https://1935067t.github.io/InfoVis2023/W04/w04_task2.csv", draw );
 	 function draw(data){
-		 d3.select("body")
-	        .selectAll("p")
-                .data(data)
-                .enter()
-                .append("p")
-                .text(function(d){ return d.label; })
-		.attr("y", function(d,i){ return padding + i * ( height + padding ); })
-		.attr("x", padding);
-
-		 var svg = d3.select("body").append("svg");
-		 // d3.select("body")
 	        svg.selectAll("rect")
 		.data(data)
 	        .enter()
@@ -30,6 +19,15 @@
 	        .attr("width", function(d){ return d.length; })
 	        .attr("height", height)
             .style("fill", function(d){ return d.color; });
+
+		 svg.append("g")
+	        .selectAll("rect")
+                .data(data)
+		.enter()
+                .append("text")
+                .text(function(d){ return d.label; })
+		.attr("y", function(d,i){ return padding + i * ( height + padding ); })
+		.attr("x", padding);
 
 
 	 };
