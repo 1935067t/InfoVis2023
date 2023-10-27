@@ -20,8 +20,8 @@
 		.style("font-size","50px")
 		.style("font-weight","bold")
 		.style("color", "#00aaff");
-		 // d3.select("body")
-	     svg.selectAll("p")
+		 d3.select("body")
+	        .selectAll("p")
                 .data(data)
                 .enter()
                 .append("p")
