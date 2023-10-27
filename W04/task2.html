@@ -14,8 +14,8 @@
         	.data(data)
             	.enter()
             	.append("p")
-            	.text(function(d){ return "aa";})
-            	.attr("y",function(d,i){ return padding + i * ( height + padding ); });
+            	.text(function(d){ return "aa";});
+            	//.attr("y",function(d,i){ return padding + i * ( height + padding ); });
 		 
 	     svg.selectAll("rect")
 		.data(data)
