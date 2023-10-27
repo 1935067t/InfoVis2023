@@ -10,11 +10,11 @@
 	 var svg = d3.select("body").append("svg");
 	 d3.csv("https://1935067t.github.io/InfoVis2023/W04/w04_task2.csv", draw );
 	 function draw(data){
-	     svg.selectAll("p")
+	     svg.selectAll("text")
         	.data(data)
             	.enter()
-            	.append("p")
-            	.text(function(d){ return "aa";});
+            	.append("text")
+            	.text("a");
             	//.attr("y",function(d,i){ return padding + i * ( height + padding ); });
 		 
 	     svg.selectAll("rect")
