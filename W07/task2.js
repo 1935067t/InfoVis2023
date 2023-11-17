@@ -118,7 +118,7 @@ class ScatterPlot {
             .attr("y", self.xrabel_cy)
             .attr("text-anchor","middle")
             .attr("font-size", "15px")
-            .text("xrabel");
+            .text("xaxis");
 
             self.svg
             .append("text")
@@ -127,7 +127,7 @@ class ScatterPlot {
             .attr("text-anchor","middle")
             .attr("font-size", "15px")
             .attr("transform",self.rabelrotate)
-            .text("yrabel");
+            .text("yaxis");
 
         self.chart.selectAll("circle")
             .data(self.data)
