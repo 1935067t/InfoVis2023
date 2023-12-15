@@ -1,4 +1,4 @@
-d3.csv("https://1935067t.github.io/InfoVis2023/W04/w10_task2.csv")
+d3.csv("https://1935067t.github.io/InfoVis2023/W10/w10_task2.csv")
     .then( data => {
         data.forEach( d => { d.x = +d.x; d.y = +d.y; });
 
@@ -135,7 +135,22 @@ class ScatterPlot {
             .append("circle")
             .attr("cx", d => self.xscatterscale( d.x ) )
             .attr("cy", d => self.yscatterscale( d.y ) )
-            .attr("r", d => d.r );
+            .attr("r", d => d.r )
+            .on('mouseover', (e,d) => {
+                d3.select('#tooltip')
+                    .style('opacity', 1)
+                    .html(`<div class="tooltip-label">Attribute</div>(${d.attr})`);
+            })
+            .on('mousemove', (e) => {
+                const padding = 10;
+                d3.select('#tooltip')
+                    .style('left', (e.pageX + padding) + 'px')
+                    .style('top', (e.pageY + padding) + 'px');
+            })
+            .on('mouseleave', () => {
+                d3.select('#tooltip')
+                    .style('opacity', 0);
+            });
 
         self.xaxis_group
             .call( self.xaxis );
@@ -143,21 +158,5 @@ class ScatterPlot {
         self.yaxis_group
             .call( self.yaxis);
 
-            // circles
-            // .on('mouseover', (e,d) => {
-            //     d3.select('#tooltip')
-            //         .style('opacity', 1)
-            //         .html(`<div class="tooltip-label">Position</div>(${d.x}, ${d.y})`);
-            // })
-            // .on('mousemove', (e) => {
-            //     const padding = 10;
-            //     d3.select('#tooltip')
-            //         .style('left', (e.pageX + padding) + 'px')
-            //         .style('top', (e.pageY + padding) + 'px');
-            // })
-            // .on('mouseleave', () => {
-            //     d3.select('#tooltip')
-            //         .style('opacity', 0);
-            // });
     }
 }
